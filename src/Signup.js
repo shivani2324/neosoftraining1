@@ -27,7 +27,7 @@ class Signup extends Component{
               errorMessage :"Please fill details"
           })
         } else {
-            let apiuril="https://apibyashu.herokuapp.com/api/register"
+            let apiuril=process.env.REACT_APP_BASE_URL+"/api/register"
             axios({
                 url:apiuril,
                 method:"post",
@@ -53,25 +53,29 @@ class Signup extends Component{
     // }
     render(){
         return (
-            <div style={{width: "50%" , margin:"auto"}}>
+            <div className="container" style={{marginTop:"50px"}}>
+            <div className="border" style={{width:"50%",margin:"auto",padding:"30px"}}>
                 {/* hey Users {this.state.onlineUsers} */}
                 <div className="form-group">
-                    <label>Email:-</label>
+                    <label>Email :-</label>
                 <input type="email" class="form-control" onChange={this.getEmail}></input>
                 </div>
                 <div className="form-group">
-                    <label>Name:-</label>
+                    <label>Name :-</label>
                 <input type="text" class="form-control" onChange={this.getName}></input>
                 </div>
                 <div className="form-group">
-                    <label>Password:-</label>
+                    <label>Password :-</label>
                 <input type="password" class="form-control" onChange={this.getPassword}></input>
                 </div>
                 <div style={{color:"red"}}>
                     {this.state.errorMessage}
                     </div>
                 {/* <button onClick={this.goOnline}>Go Online</button> */}
+                <div style={{display:"flex", justifyContent:"center"}}>
                 <button className="btn btn-primary" onClick={this.register}>Register</button>
+                </div>
+            </div>
             </div>
         )
     }

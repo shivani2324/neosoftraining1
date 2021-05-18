@@ -20,7 +20,9 @@ function Home(){
 //   setcakeShow(true)
 //     setDetails(data)
 // }
-  let allcakesapi="https://apibyashu.herokuapp.com/api/allcakes"
+
+  // let allcakesapi="https://apifromashu.herokuapp.com/api/allcakes"
+  let allcakesapi=process.env.REACT_APP_BASE_URL+"/api/allcakes"
   useEffect(()=>{
     axios({
       method:"get",
@@ -43,7 +45,7 @@ function Home(){
   
      {cakes?.length>0 &&cakes.map((each,index)=>{
       //  return (<Card cakedata={each} showdetails={showDetails}  key={index}/>)
-       return (<Card cakedata={each}   key={index}/>)
+       return (<Card cakedata={each} key={index}/>)
      })
      }
      {/* <Card />
